@@ -1,5 +1,10 @@
 My custom dotfiles.
-Oh my zsh
-sh -c "$(curl -fsSL https://raw.githubusercontent.com/ohmyzsh/ohmyzsh/master/tools/install.sh)"
+Dependencies for DWM
+    sudo pacman -S base-devel libx11 libxft libxinerama freetype2 fontconfig
+    sudo apt install build-essential libx11-dev libxft-dev libxinerama-dev libfreetype6-dev libfontconfig1-dev
 
-git clone --depth 1 https://github.com/AstroNvim/template ~/.config/nvim
+Oh my zsh
+    sh -c "$(curl -fsSL https://raw.githubusercontent.com/ohmyzsh/ohmyzsh/master/tools/install.sh)"
+AstroNvim
+    git clone --depth 1 https://github.com/AstroNvim/template ~/.config/nvim
+
