@@ -1,0 +1,18 @@
+load_modules() {
+  local module_dir="$(cd "$(dirname "${(%):-%x}")" && pwd)/modules"  # Set the module directory to .zsh_conf/modules
+
+  # Iterate over the arguments, which are the module names
+  for module in "$@"; do
+    # Use a different variable name to avoid conflicts
+    local module_file_path="$module_dir/$module"  # Construct the module path
+
+    # Check if the module path is a file (not a directory)
+    if [[ -f "$module_file_path" ]]; then
+      # Source the module file
+      source "$module_file_path"
+    else
+      # Output an error message if the file is not found or is a directory
+      echo "Error: Module not found or is a directory: $module_file_path" >&2
+    fi
+  done
+}

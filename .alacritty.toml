@@ -1,0 +1,23 @@
+[env]
+TERM = "xterm-256color"
+[shell] 
+  program="/bin/zsh"
+  
+[font]
+size = 16
+
+[window]
+decorations = "full"
+[colors.primary]
+
+background = "#1a1d23"
+
+[colors.normal]
+#black = "#ffffff"
+red = "#ff5555"
+green = "#50fa7b"
+yellow = "#f1fa8c"
+blue = "#bd93f9"
+magenta = "#ff79c6"
+cyan = "#8be9fd"
+white = "#f8f8f2"

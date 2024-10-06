@@ -1,0 +1,9 @@
+##Prompt(ps2)
+BLUE="%F{39}"  # Closest ANSI 256 color code for #0dcdcd
+WHITE="%F{white}"
+RESET="%f"
+PROMPT='${WHITE}%n${RESET}@${BLUE}%m${RESET}:${WHITE}%~${RESET}$ '
+setopt PROMPT_SUBST
+##
+alias vim=nvim
+

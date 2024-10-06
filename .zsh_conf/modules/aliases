@@ -1,0 +1,18 @@
+#General aliases
+    alias neofetch="fastfetch --localip-show-ipv4 false"
+    alias ls='ls --color=auto'
+    alias ll="ls -ltra"
+    alias grep='grep --color=auto'
+    alias vim="sudo nvim"
+    alias aider='python -m aider'
+
+    #Folder moving aliases
+    alias wm="cd /home/grr/dwm"
+    alias Y="cd /mnt/Y"
+    alias D="cd /home/grr/Downloads"
+    alias prg="cd /home/grr/programming"
+    alias Cat="cat"
+    alias cat="bat"
+    #Other
+    alias inst="sudo pacman -Syu"
+    alias p="python3"

@@ -1,0 +1,31 @@
+{
+  "name": "DWMmatchingTheme",
+  "version": "1.0",
+  "description": "",
+  "manifest_version": 3,
+  "theme": {
+    "colors": {
+      "frame": [26, 29, 35],
+      "toolbar": [26, 29, 35],
+      "tab_text": [255, 255, 255],
+      "bookmark_text": [255, 255, 255],
+      "ntp_background": [26, 29, 35],
+      "ntp_text": [255, 255, 255],
+      "ntp_link": [255, 255, 255],
+      "button_background": [26, 29, 35],
+      "omnibox_text": [255, 255, 255],
+      "omnibox_background": [26, 29, 35],
+      "tab_background": [26, 29, 35],
+      "tab_background_inactive": [26, 29, 35],
+      "toolbar_top_separator": [26, 29, 35]
+    },
+    "tints": {
+      "buttons": [0, 0, 1]
+    },
+    "properties": {
+      "ntp_background_alignment": "bottom",
+      "ntp_background_repeat": "no-repeat"
+    }
+  }
+}
+
