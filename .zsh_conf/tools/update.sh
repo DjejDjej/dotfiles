@@ -6,31 +6,18 @@ BASE_DIR=~/dotfiles
 # Function to perform git pull and update submodules
 function git_pull() {
     if [ -d "$1" ]; then
-        cd "$1"
+        cd "$1" || return
 
-        # Check if in a detached HEAD state
-        if [ "$(git rev-parse --abbrev-ref HEAD)" = "HEAD" ]; then
-            output=$(git pull origin master 2>&1)
-        else
-            output=$(git pull 2>&1)
-        fi
-        
-        # Check if the pull resulted in changes
-        if echo "$output" | grep -q 'Already up to date'; then
-            return  # Do nothing if already up to date
-        fi
+        # Perform git pull
+        output=$(git pull --rebase 2>&1)
 
-        # Print only if there were changes
-        if [[ $? -eq 0 ]]; then
-            echo "Successfully pulled from $1."
-            echo "Updating submodules for $1..."
-            submodule_output=$(git submodule update --init --recursive 2>&1)
-            if echo "$submodule_output" | grep -q 'Already up to date'; then
-                return  # Do nothing if submodules are already up to date
-            fi
-            if [ $? -eq 0 ]; then
-                echo "Successfully updated submodules for $1."
-            fi
+        # Check if the pull resulted in changes and print the output
+        if [[ "$output" != *"Already up to date"* ]]; then
+            echo "Updated $1:"
+            echo "$output"
+            echo "Updating submodules..."
+            git submodule update --init --recursive
+            echo "Submodules updated for $1."
         fi
     fi
 }
