@@ -1,6 +1,9 @@
 [submodule "dwm"]
 	path = dwm
 	url = https://github.com/DjejDjej/dwm
+	branch = master
 [submodule ".config/nvim"]
 	path = .config/nvim
 	url = https://github.com/DjejDjej/nvim
+	branch = master
+
