@@ -5,8 +5,6 @@
    #### Ubuntu
     sudo apt install build-essential libx11-dev libxft-dev libxinerama-dev libfreetype6-dev libfontconfig1-dev
 
-## Oh my zsh
-    sh -c "$(curl -fsSL https://raw.githubusercontent.com/ohmyzsh/ohmyzsh/master/tools/install.sh)"
 ## Install
     git clone --recurse-submodules https://github.com/DjejDjej/nvim/dotfiles 
     sudo pacman -S stow

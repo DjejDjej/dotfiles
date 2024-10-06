@@ -1,21 +1,21 @@
-export ZSH="$HOME/.oh-my-zsh"
-source $ZSH/oh-my-zsh.sh
-source $HOME/.zsh_conf/init
-
-ZSH_THEME="robbyrussell"
-
-plugins=(git )
-load_modules "aliases" "prompt" "jmp"
-
-source <(fzf --zsh)
-
-[[ -s /home/grr/.autojump/etc/profile.d/autojump.sh ]] && source /home/grr/.autojump/etc/profile.d/autojump.sh
+# Define the HOME_DIR variable
+HOME_DIR="$HOME"
 
 autoload -U compinit && compinit -u
-zle -N jfzf  # Register the function as a Zsh widget
+# Source initial configurations
+source "$HOME_DIR/.zsh_conf/init"
+load_modules "misc" "aliases" "prompt" "jmp"
 
-bindkey '^E' jfzf
 
+# Initialize fzf
+source <(fzf --zsh)
+
+# Source autojump if available
+[[ -s "$HOME_DIR/.autojump/etc/profile.d/autojump.sh" ]] && source "$HOME_DIR/.autojump/etc/profile.d/autojump.sh"
+
+
+# Set the default editor variables
 export EDITOR="nvim"
 export VISUAL="nvim"
 export SYSTEMD_EDITOR="nvim"
+
