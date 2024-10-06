@@ -23,7 +23,6 @@ export SYSTEMD_EDITOR="nvim"
 function update_dotfiles() {
     if [ ! -f ~/.dotfiles_updated ]; then
         nohup "$HOME_DIR/.zsh_conf/tools/update.sh" >> ~/.dotfiles_update.log 2>&1 &
-        touch ~/.dotfiles_updated
     fi
 }
 
