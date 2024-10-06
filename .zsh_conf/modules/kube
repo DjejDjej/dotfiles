@@ -1,8 +1,12 @@
 [[ $commands[kubectl] ]] && source <(kubectl completion zsh)
-source ~/.oh-my-zsh/plugins/kube-ps1/kube-ps1.plugin.zsh
-source ~/.oh-my-zsh/plugins/kubectl/kubectl.plugin.zsh
-source ~/.oh-my-zsh/plugins/kubectx/kubectx.plugin.zsh
-  
+ # Source kube-ps1 plugin
+source ~/.zsh_conf/plugins/kube-ps1.plugin.zsh
+
+# Source kubectl plugin
+source ~/.zsh_conf/plugins/kubectl.plugin.zsh
+
+# Source kubectx plugin
+source ~/.zsh_conf/plugins/kubectx.plugin.zsh 
 
 export KUBE_PS1_SYMBOL=""         # Remove the Kubernetes symbol
 export KUBE_PS1_SEPARATOR=""      # Remove the separator

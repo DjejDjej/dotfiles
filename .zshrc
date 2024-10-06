@@ -4,7 +4,7 @@ HOME_DIR="$HOME"
 autoload -U compinit && compinit -u
 # Source initial configurations
 source "$HOME_DIR/.zsh_conf/init"
-load_modules "misc" "aliases" "prompt" "jmp"
+load_modules "kube" "misc" "aliases" "prompt" "jmp"
 
 
 # Initialize fzf
