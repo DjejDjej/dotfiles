@@ -2,6 +2,8 @@
 HOME_DIR="$HOME"
 
 autoload -U compinit && compinit -u
+		
+
 # Source initial configurations
 source "$HOME_DIR/.zsh_conf/init"
 load_modules "kube" "misc" "aliases" "prompt" "jmp"
@@ -24,4 +26,11 @@ function update_dotfiles() {
          "$HOME_DIR/.zsh_conf/tools/update.sh"  
 }
 
+
 setopt autocd
+
+autoload -U select-word-style
+select-word-style bash 
+bindkey '^[[1;5D' backward-word
+bindkey '^[[1;5C' forward-word
+	
