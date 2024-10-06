@@ -24,4 +24,4 @@ function update_dotfiles() {
          "$HOME_DIR/.zsh_conf/tools/update.sh"  
 }
 
-# Call the function during startup
+setopt autocd
