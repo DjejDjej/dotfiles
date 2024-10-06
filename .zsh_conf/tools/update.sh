@@ -6,7 +6,7 @@ BASE_DIR=~/dotfiles
 # Function to perform git pull and update submodules
 function git_pull() {
     if [ -d "$1" ]; then
-        cd "$1" || return
+        pushd "$1" > /dev/null || return
 
         # Perform git pull
         output=$(git pull --rebase 2>&1)
@@ -18,7 +18,13 @@ function git_pull() {
             echo "Updating submodules..."
             git submodule update --init --recursive
             echo "Submodules updated for $1."
+        else
+            echo "$1 is already up to date."
         fi
+
+        popd > /dev/null || return
+    else
+        echo "Directory $1 does not exist."
     fi
 }
 
