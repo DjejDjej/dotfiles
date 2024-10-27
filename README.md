@@ -9,3 +9,5 @@
     git clone --recurse-submodules https://github.com/DjejDjej/nvim/dotfiles 
     sudo pacman -S stow
     stow ~/dotfiles
+
+
