@@ -6,7 +6,12 @@
     alias vim="nvim"
     alias docker='sudo docker'
     alias w="cd $HOME/work/"
+    alias smi="sudo make install"
+    alias smic="sudo make clean install"
+    alias itten="kitten"
+    alias icat="itten icat"
 #Pacman
+
     alias inst="sudo pacman -S"
     alias update="sudo pacman -Syu"
     alias remov="sudo pacman -R"
