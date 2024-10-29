@@ -1,14 +1,15 @@
 # Define the HOME_DIR variable
 HOME_DIR="$HOME"
 
-autoload -U compinit && compinit -u
-		
+autoload -U compinit && compinit -
+ZVM_INIT_MODE=sourcing	
 
 # Source initial configurations
 source "$HOME_DIR/.zsh_conf/init"
 load_modules "kube" "misc" "aliases" "prompt" "jmp"
 
 
+source /usr/share/zsh/plugins/zsh-vi-mode/zsh-vi-mode.plugin.zsh
 # Initialize fzf
 source <(fzf --zsh)
 
@@ -22,15 +23,6 @@ export VISUAL="nvim"
 export SYSTEMD_EDITOR="nvim"
 
 
-function update_dotfiles() {
-         "$HOME_DIR/.zsh_conf/tools/update.sh"  
-}
-
 
 setopt autocd
-
-autoload -U select-word-style
-select-word-style bash 
-bindkey '^[[1;5D' backward-word
-bindkey '^[[1;5C' forward-word
 	
