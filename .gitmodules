@@ -7,3 +7,6 @@
 	url = https://github.com/DjejDjej/nvim
 	branch = master
 
+[submodule "dmenu"]
+	path = dmenu
+	url = https://github.com/DjejDjej/dmenu
