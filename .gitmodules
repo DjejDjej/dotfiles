@@ -10,3 +10,6 @@
 [submodule "dmenu"]
 	path = dmenu
 	url = https://github.com/DjejDjej/dmenu
+[submodule "zsh-vi-mode"]
+	path = zsh-vi-mode
+	url = https://github.com/jeffreytse/zsh-vi-mode

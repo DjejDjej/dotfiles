@@ -10,7 +10,7 @@ load_modules "kube" "misc" "aliases" "prompt" "jmp"
 
 
 # Initialize fzf
-source $HOME/.zsh-vi-mode/zsh-vi-mode.plugin.zsh
+source ~/dotfiles/zsh-vi-mode/zsh-vi-mode.plugin.zsh
 source <(fzf --zsh)
 
 # Source autojump if available
