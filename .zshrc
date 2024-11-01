@@ -9,8 +9,8 @@ source "$HOME_DIR/.zsh_conf/init"
 load_modules "kube" "misc" "aliases" "prompt" "jmp"
 
 
-source /usr/share/zsh/plugins/zsh-vi-mode/zsh-vi-mode.plugin.zsh
 # Initialize fzf
+source $HOME/.zsh-vi-mode/zsh-vi-mode.plugin.zsh
 source <(fzf --zsh)
 
 # Source autojump if available
