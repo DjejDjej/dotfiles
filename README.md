@@ -1,10 +1,11 @@
 # My own dotfiles
 # This repository contains:
 
-### Configs of Suckless Software
-- Slock -- Minimalistic Lockscreen
-- Dmenu -- Minimalistic App launcher 
-- dwm   -- Dynamic Window Manager
+### Configs of Suckless Software        Size
+- Slock -- Minimalistic Lockscreen      23K
+- Dmenu -- Minimalistic App launche     43K
+- dwm   -- Dynamic Window Manager       62K
+                                       128K 
 
 ### ZSH Config
 - modular
