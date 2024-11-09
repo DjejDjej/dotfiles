@@ -5,7 +5,7 @@
 - Slock -- Minimalistic Lockscreen      23Kb
 - Dmenu -- Minimalistic App launche     43Kb
 - dwm   -- Dynamic Window Manager       62Kb
--                                       128Kb
+--                                     128Kb
 
 ### ZSH Config
 - modular
