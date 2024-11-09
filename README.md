@@ -2,11 +2,10 @@
 # This repository contains:
 
 ### Configs of Suckless Software        
-                                        size
-- Slock -- Minimalistic Lockscreen      23K
-- Dmenu -- Minimalistic App launche     43K
-- dwm   -- Dynamic Window Manager       62K
-                                       128K 
+- Slock -- Minimalistic Lockscreen      23Kb
+- Dmenu -- Minimalistic App launche     43Kb
+- dwm   -- Dynamic Window Manager       62Kb
+                                        128Kb
 
 ### ZSH Config
 - modular
