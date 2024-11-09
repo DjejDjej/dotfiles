@@ -1,9 +1,5 @@
-
-
-
-
-
 # This repository contains:
+
 ### Configs of Suckless Software        
 - Slock -- Minimalistic Lockscreen      23Kb
 - Dmenu -- Minimalistic App launche     43Kb
@@ -38,15 +34,15 @@
 - Change layout script
 
 ## Screenshots
-- ![Screenshot](https://raw.githubusercontent.com/DjejDjej/dotfiles/refs/heads/main/images/terminals.png)
+ ![Screenshot](https://raw.githubusercontent.com/DjejDjej/dotfiles/refs/heads/main/images/terminals.png)
  ![Screenshot](https://raw.githubusercontent.com/DjejDjej/dotfiles/refs/heads/main/images/vim.png)
-- ![Screenshot](https://raw.githubusercontent.com/DjejDjej/dotfiles/refs/heads/main/images/vimopen.png)
+ ![Screenshot](https://raw.githubusercontent.com/DjejDjej/dotfiles/refs/heads/main/images/vimopen.png)
 
 ## Install
-   - git clone --recurse-submodules https://github.com/DjejDjej/nvim/dotfiles 
-   - sudo pacman -S stow
-   - stow ~/dotfiles
-
+   1. git clone --recurse-submodules https://github.com/DjejDjej/nvim/dotfiles 
+   2. sudo pacman -S stow
+   3. stow ~/dotfiles
+    
 ## Software
    - zsh
    - stow
