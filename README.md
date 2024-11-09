@@ -7,6 +7,14 @@
 - dwm   -- Dynamic Window Manager       62Kb
 - barM  -- Custom light Statusbar       15Kb
 
+### Suckless dependencies
+#### Arch linux 
+-    sudo pacman -S base-devel libx11 libxft libxinerama freetype2 fontconfig ttf-dejavu ttf-dejavu-ner
+
+#### Deb based 
+-    sudo apt install build-essential libx11-dev libxft-dev libxinerama-dev libfreetype6-dev libfontconfig1-dev
+
+
 ### ZSH Config
 - Modular
 - FZF support
@@ -26,17 +34,11 @@
 - Nice wallpaper
 - Change layout script
 
-### Suckless dependencies
-#### Arch linux 
-- sudo pacman -S base-devel libx11 libxft libxinerama freetype2 fontconfig ttf-dejavu ttf-dejavu-ner
-
-#### Deb based 
--    sudo apt install build-essential libx11-dev libxft-dev libxinerama-dev libfreetype6-dev libfontconfig1-dev
-
 ## Install
    - git clone --recurse-submodules https://github.com/DjejDjej/nvim/dotfiles 
    - sudo pacman -S stow
    - stow ~/dotfiles
+
 ## Software
    - zsh
    - stow
@@ -44,4 +46,4 @@
    - fzf
    - kitty
    - picom
-
+   - fastfetch

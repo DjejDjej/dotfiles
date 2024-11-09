@@ -2,5 +2,5 @@ setxkbmap us_qwertz
 
 xmodmap ~/.Xmodmap
 picom & 
-feh --bg-center ~/dwm/bg.png
+feh --bg-center ~/dotfiles/bg.png
 exec dwm
