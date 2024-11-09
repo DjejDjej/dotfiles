@@ -5,7 +5,7 @@
 
 
 
-[(/images/terminal.png)]
+[](/images/terminal.png)
 
 ### Configs of Suckless Software        
 - Slock -- Minimalistic Lockscreen      23Kb
