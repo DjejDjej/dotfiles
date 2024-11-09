@@ -5,7 +5,7 @@
 
 
 
-[](https://raw.githubusercontent.com/DjejDjej/dotfiles/refs/heads/main/images/terminals.png)
+![Screenshot](https://raw.githubusercontent.com/DjejDjej/dotfiles/refs/heads/main/images/terminals.png)
 
 ### Configs of Suckless Software        
 - Slock -- Minimalistic Lockscreen      23Kb
