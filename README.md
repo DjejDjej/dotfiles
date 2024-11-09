@@ -39,8 +39,9 @@
 
 ## Screenshots
 - ![Screenshot](https://raw.githubusercontent.com/DjejDjej/dotfiles/refs/heads/main/images/terminals.png)
-- ![Screenshot](https://raw.githubusercontent.com/DjejDjej/dotfiles/refs/heads/main/images/vim.png)
+ ![Screenshot](https://raw.githubusercontent.com/DjejDjej/dotfiles/refs/heads/main/images/vim.png)
 - ![Screenshot](https://raw.githubusercontent.com/DjejDjej/dotfiles/refs/heads/main/images/vimopen.png)
+
 ## Install
    - git clone --recurse-submodules https://github.com/DjejDjej/nvim/dotfiles 
    - sudo pacman -S stow
