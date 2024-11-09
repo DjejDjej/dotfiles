@@ -3,7 +3,7 @@
 ### Configs of Suckless Software        
 - Slock -- Minimalistic Lockscreen      23Kb
 - Dmenu -- Minimalistic App launche     43Kb
-- dwm   -- Dynamic Window Manager       62Kb
+- DWM   -- Dynamic Window Manager       62Kb
 - barM  -- Custom light Statusbar       15Kb
 
 ### Suckless dependencies
@@ -20,7 +20,7 @@
 - Autojump shortcut
 - Without oh my zsh
 - Lighweight and smart Kubernetes, Git prompt 
-- VI mode
+- VI mode [zsh-vi-mode](https://github.com/jeffreytse/zsh-vi-mode)
 
 ### Kitty config
 - Bind for Ctrl+G scrollback with vim motions (tmux copy mode without tmux)
@@ -51,3 +51,4 @@
    - kitty
    - picom
    - fastfetch
+   - Rnote
