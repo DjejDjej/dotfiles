@@ -1,6 +1,12 @@
 # My own dotfiles
 # This repository contains:
 
+
+
+
+
+[(/images/terminal.png)]
+
 ### Configs of Suckless Software        
 - Slock -- Minimalistic Lockscreen      23Kb
 - Dmenu -- Minimalistic App launche     43Kb
