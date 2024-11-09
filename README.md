@@ -1,7 +1,8 @@
 # My own dotfiles
 # This repository contains:
 
-### Configs of Suckless Software        Size
+### Configs of Suckless Software        
+                                        size
 - Slock -- Minimalistic Lockscreen      23K
 - Dmenu -- Minimalistic App launche     43K
 - dwm   -- Dynamic Window Manager       62K
