@@ -1,12 +1,9 @@
-# My own dotfiles
+
+
+
+
+
 # This repository contains:
-
-
-
-
-
-![Screenshot](https://raw.githubusercontent.com/DjejDjej/dotfiles/refs/heads/main/images/terminals.png)
-
 ### Configs of Suckless Software        
 - Slock -- Minimalistic Lockscreen      23Kb
 - Dmenu -- Minimalistic App launche     43Kb
@@ -40,6 +37,10 @@
 - Nice wallpaper
 - Change layout script
 
+## Screenshots
+- ![Screenshot](https://raw.githubusercontent.com/DjejDjej/dotfiles/refs/heads/main/images/terminals.png)
+- ![Screenshot](https://raw.githubusercontent.com/DjejDjej/dotfiles/refs/heads/main/images/vim.png)
+- ![Screenshot](https://raw.githubusercontent.com/DjejDjej/dotfiles/refs/heads/main/images/vimopen.png)
 ## Install
    - git clone --recurse-submodules https://github.com/DjejDjej/nvim/dotfiles 
    - sudo pacman -S stow
