@@ -1,10 +1,28 @@
 # My own dotfiles
 # This repository contains:
 
-### Configuration of Suckless Software
+### Configs of Suckless Software
 - Slock -- Minimalistic Lockscreen
 - Dmenu -- Minimalistic App launcher 
 - dwm   -- Dynamic Window Manager
+
+### ZSH Config
+- modular
+- fzf support
+- autojump shortcut
+- no oh my zsh
+- lighweight and smart Kubernetes, Git prompt 
+- VI mode
+
+### Kitty config
+- Bind for Ctrl+G scrollback with vim motions (tmux copy mode without tmux)
+- Deleted unneseary functions
+
+### Other
+- Custom keyboard layout us-qwertz
+- Picom config
+- .xinitrc
+- Nice wallpaper
 
 ## Suckless dependencies
    #### Arch linux 
@@ -18,9 +36,9 @@
    - stow ~/dotfiles
 ## Software
    - zsh
+   - stow
    - neovim
    - fzf
    - kitty
    - picom
-
 
