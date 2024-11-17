@@ -24,4 +24,4 @@
     alias gac='git add .; git commit -m'
     alias g='git'
 
-
+    bindkey '^L' clear-screen

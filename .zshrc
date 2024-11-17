@@ -22,7 +22,6 @@ export EDITOR="nvim"
 export VISUAL="nvim"
 export SYSTEMD_EDITOR="nvim"
 
-
-
+alias b='gcc *.c -o "$(basename "$PWD")" && ./"$(basename "$PWD")"' 
 setopt autocd
 	
