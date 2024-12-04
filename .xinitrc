@@ -9,8 +9,10 @@ fi
 
 
 setxkbmap -option caps:none
+
+dwm >> ~/.dwm.log 2>&1
+
 # Restart dwm in a loop to avoid restarting Xorg
-while true; do
-    # Log restarts, if needed
-    dwm >> ~/.dwm.log 2>&1
-done
+#while true; do
+#    # Log restarts, if needed
+#done
