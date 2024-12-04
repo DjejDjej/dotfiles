@@ -23,5 +23,5 @@
     alias gc='git commit -m'
     alias gac='git add .; git commit -m'
     alias g='git'
-
+    alias vo='vim .'
     bindkey '^L' clear-screen

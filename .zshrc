@@ -21,7 +21,7 @@ source <(fzf --zsh)
 export EDITOR="nvim"
 export VISUAL="nvim"
 export SYSTEMD_EDITOR="nvim"
-
+export MANPAGER='nvim +Man!'
 alias b='gcc *.c -o "$(basename "$PWD")" && ./"$(basename "$PWD")"' 
 setopt autocd
 	
