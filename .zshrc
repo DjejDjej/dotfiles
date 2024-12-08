@@ -24,4 +24,5 @@ export SYSTEMD_EDITOR="nvim"
 export MANPAGER='nvim +Man!'
 alias b='gcc *.c -o "$(basename "$PWD")" && ./"$(basename "$PWD")"' 
 setopt autocd
-	
+export GTK_THEME=Adwaita-dark
+
