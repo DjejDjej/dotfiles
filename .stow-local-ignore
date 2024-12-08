@@ -6,4 +6,4 @@ chrometheme
 zsh-vi-mode
 images
 bg.png
-wayland
+wayland/*
