@@ -1,22 +1,16 @@
 exec i3a-master-stack --stack=dwm --stack-size=50 
 set $mod Mod1
-exec_always --no-startup-id start-waybar 
 set $term kitty 
 set $menu rofi -show drun 
-exec swaybg -i ~/bg.png 
-
-
-bindsym $mod+k exec i3a-resize-compass right 4ppt
-bindsym $mod+j exec i3a-resize-compass left 4ppt
-bindsym $mod+e exec i3a-movedown 
-bindsym $mod+o exec i3a-swap 
+exec swaybg -i ~/dotfiles/bg.png 
+output * scale 1
 
 default_border none
 default_floating_border none
 font pango: monospace 0.001
 smart_gaps on
-gaps inner 10
-gaps outer 10
+gaps inner 6
+gaps outer -3
 
 
 for_window [app_id="kitty"] move to workspace 2
@@ -44,6 +38,12 @@ bindsym $mod+Shift+x exec swaymsg exit
 bindsym Print exec 'grim -g "$(slurp -b "#00000088" -c "#FF0000")" - | wl-copy' 
 bindsym Super_L exec rofi -show drun
 
+bindsym $mod+k exec i3a-resize-compass right 4ppt
+bindsym $mod+j exec i3a-resize-compass left 4ppt
+bindsym $mod+e exec i3a-cycle-focus down
+bindsym $mod+o exec i3a-swap 
+
+
 
 bindsym $mod+1 workspace number 1
 bindsym $mod+2 workspace number 2
@@ -55,6 +55,7 @@ bindsym $mod+7 workspace number 7
 bindsym $mod+8 workspace number 8
 bindsym $mod+9 workspace number 9
 bindsym $mod+0 workspace number 10
+
 bindsym $mod+Shift+1 move container to workspace number 1
 bindsym $mod+Shift+2 move container to workspace number 2
 bindsym $mod+Shift+3 move container to workspace number 3
@@ -69,6 +70,10 @@ bindsym $mod+Shift+0 move container to workspace number 10
 
 input "type:keyboard" {
     xkb_layout us,cz
-    xkb_options grp:ctrl_shift_toggle
+    xkb_options grp:win_space_toggle
 }
+exec start-waybar 
+
+
+
 include /etc/sway/config.d/*

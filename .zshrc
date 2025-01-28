@@ -17,6 +17,7 @@ source <(fzf --zsh)
 [[ -s "$HOME_DIR/.autojump/etc/profile.d/autojump.sh" ]] && source "$HOME_DIR/.autojump/etc/profile.d/autojump.sh"
 
 
+export TERM=xterm-256color
 # Set the default editor variables
 export EDITOR="nvim"
 export VISUAL="nvim"

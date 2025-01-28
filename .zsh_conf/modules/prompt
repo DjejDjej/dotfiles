@@ -17,8 +17,6 @@ GIT_COMMANDS=("git" "ga" "gc" "gac" "gp" "g")
 GIT_PROMPT='${vcs_info_msg_0_}${WHITE}%n${RESET}@${BLUE}%m${RESET}:${WHITE}%~${RESET}$ '
 
 
-    
-
 
 
 KUBE_PROMPT='$(kube_ps1) -> ${WHITE}%n${RESET}@${BLUE}%m${RESET}:${WHITE}%~${RESET}$ '

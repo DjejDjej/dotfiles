@@ -2,14 +2,14 @@
     border: black 1px;
     border-radius: 0;
     font-family:DejaVu;
-    font-size: 16px;
- color: white;
- min-height: 0;
+    font-weight: bold;
+    font-size: 17px;
+    color: white;
+    min-height: 25px;
 }
 
 window#waybar {
     background-color: transparent; 
-    transition-duration: .5s;
 
 }
 
@@ -29,12 +29,12 @@ background-color: #FF9999;
 
 #clock {
     padding-right: 10px;
+    font-weight: bold;
 }
 
 
 #workspaces button {
-background-color:#5A5A5A ;
-
-	padding-left: 10px;
-    padding-right: 10px;
-    }
+    background-color:#5A5A5A ;
+    padding-left: 7px;
+    padding-right: 7px;
+}

@@ -18,7 +18,7 @@
 
     "sway/workspaces": {
         "format": "{name}",
-	"disable-click": true,
+	"disable-click": false,
 	"format-icons": {
 	"default":""
 	},
@@ -36,7 +36,7 @@
     },
 
     "clock": {
-        "format": "{:%Y-%m-%d %H:%M:%S}",
+        "format": "{:%d.%m %Y %H:%M:%S}",
         "interval": 1,
     }
 }

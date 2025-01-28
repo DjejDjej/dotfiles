@@ -1,7 +1,0 @@
-#!/bin/bash
-chromium \
---app=https://discord.com/app \
---no-default-browser-check \
---disable-infobars \
---disable-features=IsolateOrigins,site-per-process \
-
