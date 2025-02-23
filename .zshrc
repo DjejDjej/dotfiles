@@ -1,7 +1,6 @@
 # Define the HOME_DIR variable
 HOME_DIR="$HOME"
 autoload -U compinit && compinit -
-
 ZVM_INIT_MODE=sourcing	
 # Source initial configurations
 source "$HOME_DIR/.zsh/misc"
@@ -63,18 +62,23 @@ export KUBE_PS1_SEPARATOR=""      # Remove the separator
 export KUBE_PS1_PREFIX=""         # Remove the prefix (usually "(")
 export KUBE_PS1_SUFFIX=""         # Remove the suffix (usually ")")
 export KUBE_PS1_SYMBOL_ENABLE=false 
-
-
-
 fzf_tree_ignore() {
   local base_dir tree_cmd selected
   base_dir="$(git rev-parse --show-toplevel 2>/dev/null || pwd)"
   tree_cmd="tree -afi --noreport -I '.*|node_modules' \"$base_dir\""
   [[ "$PWD" != "$base_dir" ]] && tree_cmd="$tree_cmd | sed \"s|^$base_dir/||\""
-  selected="$(eval "$tree_cmd" | fzf --preview '([[ -d {} ]] && tree -C {} || bat --style=numbers --color=always {})')"
+
+  selected="$(
+    eval "$tree_cmd" | fzf \
+      --height=100% \
+      --border=rounded \
+      --preview '([[ -d {} ]] && tree -C {} || bat --style=numbers --color=always {})'
+  )"
+
   [[ -z "$selected" ]] && return
   selected="${selected#\"}"
   selected="${selected%\"}"
+
   if [[ "$selected" == /* ]]; then
     [[ -d "$selected" ]] && cd "$selected" || "${EDITOR:-vim}" "$selected"
   else
@@ -87,10 +91,18 @@ fzf_tree_all() {
   base_dir="$(git rev-parse --show-toplevel 2>/dev/null || pwd)"
   tree_cmd="tree -afi --noreport \"$base_dir\""
   [[ "$PWD" != "$base_dir" ]] && tree_cmd="$tree_cmd | sed \"s|^$base_dir/||\""
-  selected="$(eval "$tree_cmd" | fzf --preview '([[ -d {} ]] && tree -C {} || bat --style=numbers --color=always {})')"
+
+  selected="$(
+    eval "$tree_cmd" | fzf \
+      --border=rounded \
+      --height=100% \
+      --preview '([[ -d {} ]] && tree -C {} || bat --style=numbers --color=always {})'
+  )"
+
   [[ -z "$selected" ]] && return
   selected="${selected#\"}"
   selected="${selected%\"}"
+
   if [[ "$selected" == /* ]]; then
     [[ -d "$selected" ]] && cd "$selected" || "${EDITOR:-vim}" "$selected"
   else
@@ -98,8 +110,8 @@ fzf_tree_all() {
   fi
 }
 
+# ZLE binding for Zsh:
 zle -N fzf_tree_ignore
 zle -N fzf_tree_all
 bindkey '^F' fzf_tree_ignore
 bindkey '^T' fzf_tree_all
-
