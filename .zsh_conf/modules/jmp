@@ -1,8 +1,0 @@
-jfzf() {
-    local dir
-    dir=$(autojump --stat | awk '$2 ~ /^\// {print $2}' | sort -k 1,1nr | head -n 30 | fzf --height 30%  --reverse --no-sort) && cd "$dir" 
-}
-
-zle -N jfzf
-bindkey '^E' jfzf
-
