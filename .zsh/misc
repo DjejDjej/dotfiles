@@ -1,6 +1,46 @@
 autoload -Uz compinit
 compinit
 
+fzf_tree_ignore() {
+  local base_dir tree_cmd selected
+  base_dir="$(git rev-parse --show-toplevel 2>/dev/null || pwd)"
+  tree_cmd="tree -afi --noreport -I '.*|node_modules' \"$base_dir\""
+  [[ "$PWD" != "$base_dir" ]] && tree_cmd="$tree_cmd | sed \"s|^$base_dir/||\""
+  selected="$(eval "$tree_cmd" | fzf --preview '([[ -d {} ]] && tree -C {} || bat --style=numbers --color=always {})')"
+  [[ -z "$selected" ]] && return
+  selected="${selected#\"}"
+  selected="${selected%\"}"
+  if [[ "$selected" == /* ]]; then
+    [[ -d "$selected" ]] && cd "$selected" || "${EDITOR:-vim}" "$selected"
+  else
+    [[ -d "$base_dir/$selected" ]] && cd "$base_dir/$selected" || "${EDITOR:-vim}" "$base_dir/$selected"
+  fi
+}
+
+fzf_tree_all() {
+  local base_dir tree_cmd selected
+  base_dir="$(git rev-parse --show-toplevel 2>/dev/null || pwd)"
+  tree_cmd="tree -afi --noreport \"$base_dir\""
+  [[ "$PWD" != "$base_dir" ]] && tree_cmd="$tree_cmd | sed \"s|^$base_dir/||\""
+  selected="$(eval "$tree_cmd" | fzf --preview '([[ -d {} ]] && tree -C {} || bat --style=numbers --color=always {})')"
+  [[ -z "$selected" ]] && return
+  selected="${selected#\"}"
+  selected="${selected%\"}"
+  if [[ "$selected" == /* ]]; then
+    [[ -d "$selected" ]] && cd "$selected" || "${EDITOR:-vim}" "$selected"
+  else
+    [[ -d "$base_dir/$selected" ]] && cd "$base_dir/$selected" || "${EDITOR:-vim}" "$base_dir/$selected"
+  fi
+}
+
+zle -N fzf_tree_ignore
+zle -N fzf_tree_all
+bindkey '^T' fzf_tree_ignore
+bindkey '^F' fzf_tree_all
+
+
+
+
 # Customize completion styles
 zstyle ':completion:*' menu select
 zstyle ':completion:*:default' list-colors 'di=34:fi=0:ln=35:pi=33:so=32:bd=37:cd=37:or=31:ex=32:*.tar=31:*.gz=31:*.zip=31:*.jpg=35:*.png=35:*.gif=35'
