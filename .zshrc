@@ -1,8 +1,8 @@
 # Define the HOME_DIR variable
 HOME_DIR="$HOME"
-ZVM_INIT_MODE=sourcing	
 autoload -U compinit && compinit -
 
+ZVM_INIT_MODE=sourcing	
 # Source initial configurations
 source "$HOME_DIR/.zsh/misc"
 
@@ -66,92 +66,6 @@ export KUBE_PS1_SYMBOL_ENABLE=false
 
 
 
-
-fzf_tree_ignore() {
-  local base_dir
-  # Fall back to pwd if not in a git repo
-  base_dir="$(git rev-parse --show-toplevel 2>/dev/null || pwd)"
-
-  # Build the tree command
-  # NOTE: If you want to see hidden files, remove ".*|" from the -I pattern
-  local tree_cmd
-  tree_cmd="tree -afi --noreport -I '.*|node_modules' \"$base_dir\""
-
-  # If we’re not at the Git root, strip the $base_dir/ prefix from tree output
-  if [[ "$PWD" != "$base_dir" ]]; then
-    tree_cmd="$tree_cmd | sed \"s|^$base_dir/||\""
-  fi
-
-  # Run the tree command and pipe to fzf
-  # Using process substitution ($(...)) is safer than eval.
-  local selected
-  selected="$(
-    eval "$tree_cmd" \
-    | fzf --preview '([[ -d {} ]] && tree -C {} || bat --style=numbers --color=always {})'
-  )"
-
-  # Bail out if nothing was selected
-  [[ -z "$selected" ]] && return
-
-  # Strip surrounding quotes (in case the selection came in quoted)
-  selected="${selected#\"}"
-  selected="${selected%\"}"
-
-  # If user typed or selected an absolute path, use it directly
-  if [[ "$selected" == /* ]]; then
-    if [[ -d "$selected" ]]; then
-      cd "$selected" || return
-    else
-      "${EDITOR:-vim}" "$selected"
-    fi
-  else
-    # Otherwise, prepend base_dir
-    if [[ -d "$base_dir/$selected" ]]; then
-      cd "$base_dir/$selected" || return
-    else
-      "${EDITOR:-vim}" "$base_dir/$selected"
-    fi
-  fi
-}
-
-# fzf_tree_all: Shows all files (including hidden), but no ignore pattern.
-fzf_tree_all() {
-  local base_dir
-  base_dir="$(git rev-parse --show-toplevel 2>/dev/null || pwd)"
-
-  local tree_cmd
-  tree_cmd="tree -afi --noreport \"$base_dir\""
-
-  if [[ "$PWD" != "$base_dir" ]]; then
-    tree_cmd="$tree_cmd | sed \"s|^$base_dir/||\""
-  fi
-
-  local selected
-  selected="$(
-    eval "$tree_cmd" \
-    | fzf --preview '([[ -d {} ]] && tree -C {} || bat --style=numbers --color=always {})'
-  )"
-
-  [[ -z "$selected" ]] && return
-
-  selected="${selected#\"}"
-  selected="${selected%\"}"
-
-  if [[ "$selected" == /* ]]; then
-    if [[ -d "$selected" ]]; then
-      cd "$selected" || return
-    else
-      "${EDITOR:-vim}" "$selected"
-    fi
-  else
-    if [[ -d "$base_dir/$selected" ]]; then
-      cd "$base_dir/$selected" || return
-    else
-      "${EDITOR:-vim}" "$base_dir/$selected"
-    fi
-  fi
-}
-
 fzf_tree_ignore() {
   local base_dir tree_cmd selected
   base_dir="$(git rev-parse --show-toplevel 2>/dev/null || pwd)"
@@ -186,5 +100,6 @@ fzf_tree_all() {
 
 zle -N fzf_tree_ignore
 zle -N fzf_tree_all
-bindkey '^T' fzf_tree_ignore
-bindkey '^F' fzf_tree_all
+bindkey '^F' fzf_tree_ignore
+bindkey '^T' fzf_tree_all
+

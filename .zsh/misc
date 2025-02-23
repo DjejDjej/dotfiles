@@ -137,7 +137,3 @@ KUBE_COMMANDS=("kubectl" "kubens" "kubectx" "k" "k9s" "ns" "ctx" "oc")
 
 
 
-[[ $commands[kubectl] ]] && source <(kubectl completion zsh)
-
-
-
