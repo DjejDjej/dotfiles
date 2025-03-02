@@ -44,6 +44,7 @@ export GTK_THEME=Adwaita-dark
     alias gc='git commit -m'
     alias gac='git add .; git commit -m'
     alias g='git'
+    alias lg='lazygit'
     alias vo='vim .'
     bindkey '^L' clear-screen
 

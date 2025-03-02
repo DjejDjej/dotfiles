@@ -1,0 +1,6 @@
+ui:
+  header:
+    enable: false  # Disable the header/banner with donation URLs
+
+git:
+  auto-fetch-interval: 60  # Enable auto-fetch every 60 seconds
