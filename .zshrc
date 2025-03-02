@@ -4,7 +4,7 @@ autoload -U compinit && compinit -
 ZVM_INIT_MODE=sourcing	
 # Source initial configurations
 source "$HOME_DIR/.zsh/misc"
-
+tmux source-file ~/.tmux.conf
 # Initialize fzf
 source ~/dotfiles/zsh-vi-mode/zsh-vi-mode.plugin.zsh
 source <(fzf --zsh)
