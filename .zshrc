@@ -52,7 +52,6 @@ source ~/.zsh/fzf-tab/fzf-tab.plugin.zsh
 
     alias ns="kubens"
     alias ctx="kubectx"
-    alias oc="k"
 
 source ~/.zsh/kube-ps1.plugin.zsh
 source ~/.zsh/kubectl.plugin.zsh
