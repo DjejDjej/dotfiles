@@ -7,7 +7,6 @@ source "$HOME_DIR/.zsh/misc"
 # Initialize fzf
 source ~/dotfiles/zsh-vi-mode/zsh-vi-mode.plugin.zsh
 source <(fzf --zsh)
-
 export TERM=xterm-256color
 export EDITOR="nvim"
 export VISUAL="nvim"
@@ -109,8 +108,42 @@ fzf_tree_all() {
   fi
 }
 
+
+function open_nvim() {
+  # Optionally clear the current command line
+  zle reset-prompt
+  # Run nvim in the current directory
+  nvim .
+  # Refresh the prompt when you return
+  zle reset-prompt
+}
+
+function search_rg() {
+  # Prompt the user for a search pattern
+  local pattern
+  print -n "Enter search pattern: "
+  read pattern
+  # Clear the screen (optional)
+  clear
+  # Run ripgrep with the entered pattern
+  rg "$pattern"
+  # Optionally wait for input before returning to the shell
+  print "Press Enter to continue..."
+  read
+  zle reset-prompt
+}
+
+
+function pkill() {
+  ps aux | fzf --height 40% --layout=reverse --prompt="Select process to kill: " | awk '{print $2}' | xargs -p sudo kill
+}
+
 # ZLE binding for Zsh:
+zle -N open_nvim
+zle -N search_rg
 zle -N fzf_tree_ignore
 zle -N fzf_tree_all
 bindkey '^F' fzf_tree_ignore
 bindkey '^T' fzf_tree_all
+bindkey '^E' open_nvim
+bindkey '^G' search_rg
