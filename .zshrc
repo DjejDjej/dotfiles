@@ -14,7 +14,7 @@ export SYSTEMD_EDITOR="nvim"
 export MANPAGER='nvim +Man!'
 setopt autocd
 export GTK_THEME=Adwaita-dark
-source ~/.zsh/fzf-tab/fzf-tab.plugin.zsh
+# source ~/.zsh/fzf-tab/fzf-tab.plugin.zsh
 
 #General
     alias neofetch="fastfetch --localip-show-ipv4 false"
