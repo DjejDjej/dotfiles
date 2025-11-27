@@ -17,7 +17,6 @@ export GTK_THEME=Adwaita-dark
 # source ~/.zsh/fzf-tab/fzf-tab.plugin.zsh
 
 #General
-    alias neofetch="fastfetch --localip-show-ipv4 false"
     alias ls='ls --color=auto'
     alias ll="ls -ltra"
     alias grep='grep --color=auto'
@@ -137,6 +136,8 @@ function search_rg() {
 function pkill() {
   ps aux | fzf --height 40% --layout=reverse --prompt="Select process to kill: " | awk '{print $2}' | xargs -p sudo kill
 }
+xinput --set-prop 13 "libinput Accel Speed" -0.8
+
 
 # ZLE binding for Zsh:
 zle -N open_nvim
