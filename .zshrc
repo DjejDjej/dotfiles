@@ -1,8 +1,7 @@
 # Define the HOME_DIR variable
 HOME_DIR="$HOME"
 autoload -U compinit && compinit -
-ZVM_INIT_MODE=sourcing	
-# Source initial configurations
+ZVM_INIT_MODE=sourcing	# Source initial configurations
 source "$HOME_DIR/.zsh/misc"
 # Initialize fzf
 source ~/dotfiles/zsh-vi-mode/zsh-vi-mode.plugin.zsh
@@ -14,7 +13,8 @@ export SYSTEMD_EDITOR="nvim"
 export MANPAGER='nvim +Man!'
 setopt autocd
 export GTK_THEME=Adwaita-dark
-# source ~/.zsh/fzf-tab/fzf-tab.plugin.zsh
+xinput --set-prop 13 "libinput Accel Speed" -0.8
+
 
 #General
     alias ls='ls --color=auto'
@@ -27,8 +27,6 @@ export GTK_THEME=Adwaita-dark
     alias docker='sudo docker'
     alias w="cd $HOME/work/"
     alias smi="sudo make install"
-    alias smic="sudo make clean install"
-    alias b='gcc *.c -o "$(basename "$PWD")" && ./"$(basename "$PWD")"' 
     alias itten="kitten"
     alias icat="itten icat"
 #Pacman
@@ -37,106 +35,93 @@ export GTK_THEME=Adwaita-dark
     alias update="sudo pacman -Syu"
     alias remov="sudo pacman -R"
 #Git
-    alias ga='git add'
-    alias gc='git commit -m'
-    alias gac='git add .; git commit -m'
-    alias g='git'
-    alias lg='lazygit'
     alias vo='vim .'
     bindkey '^L' clear-screen
 
 #Kube aliases
 
-    alias ns="kubens"
-    alias ctx="kubectx"
+    # alias ns="kubens"
+    # alias ctx="kubectx"
 
-source ~/.zsh/kube-ps1.plugin.zsh
-source ~/.zsh/kubectl.plugin.zsh
-source ~/.zsh/kubectx.plugin.zsh 
+# source ~/.zsh/kube-ps1.plugin.zsh
+# source ~/.zsh/kubectl.plugin.zsh
+# source ~/.zsh/kubectx.plugin.zsh 
 
-export KUBE_PS1_SYMBOL=""         # Remove the Kubernetes symbol
-export KUBE_PS1_SEPARATOR=""      # Remove the separator
-export KUBE_PS1_PREFIX=""         # Remove the prefix (usually "(")
-export KUBE_PS1_SUFFIX=""         # Remove the suffix (usually ")")
-export KUBE_PS1_SYMBOL_ENABLE=false 
+# export KUBE_PS1_SYMBOL=""         # Remove the Kubernetes symbol
+# export KUBE_PS1_SEPARATOR=""      # Remove the separator
+# export KUBE_PS1_PREFIX=""         # Remove the prefix (usually "(")
+# export KUBE_PS1_SUFFIX=""         # Remove the suffix (usually ")")
+# export KUBE_PS1_SYMBOL_ENABLE=false 
+
+
+
 fzf_tree_ignore() {
-  local base_dir tree_cmd selected
+  local base_dir tree_cmd selected action
   base_dir="$(git rev-parse --show-toplevel 2>/dev/null || pwd)"
   tree_cmd="tree -afi --noreport -I '.*|node_modules' \"$base_dir\""
   [[ "$PWD" != "$base_dir" ]] && tree_cmd="$tree_cmd | sed \"s|^$base_dir/||\""
 
-  selected="$(
-    eval "$tree_cmd" | fzf \
-      --height=100% \
-      --border=rounded \
-      --preview '([[ -d {} ]] && tree -C {} || bat --style=numbers --color=always {})'
-  )"
-
+  selected="$(eval "$tree_cmd" | fzf --preview '([[ -d {} ]] && tree -C {} || bat --style=numbers --color=always {})')"
   [[ -z "$selected" ]] && return
+
   selected="${selected#\"}"
   selected="${selected%\"}"
 
   if [[ "$selected" == /* ]]; then
-    [[ -d "$selected" ]] && cd "$selected" || "${EDITOR:-vim}" "$selected"
+    if [[ -d "$selected" ]]; then
+      action="cd \"$selected\""
+    else
+      action="${EDITOR:-vim} \"$selected\""
+    fi
   else
-    [[ -d "$base_dir/$selected" ]] && cd "$base_dir/$selected" || "${EDITOR:-vim}" "$base_dir/$selected"
+    if [[ -d "$base_dir/$selected" ]]; then
+      action="cd \"$base_dir/$selected\""
+    else
+      action="${EDITOR:-vim} \"$base_dir/$selected\""
+    fi
   fi
+
+  print -s "$action"
+  eval "$action"
 }
 
 fzf_tree_all() {
-  local base_dir tree_cmd selected
+  local base_dir tree_cmd selected action
   base_dir="$(git rev-parse --show-toplevel 2>/dev/null || pwd)"
   tree_cmd="tree -afi --noreport \"$base_dir\""
   [[ "$PWD" != "$base_dir" ]] && tree_cmd="$tree_cmd | sed \"s|^$base_dir/||\""
 
-  selected="$(
-    eval "$tree_cmd" | fzf \
-      --border=rounded \
-      --height=100% \
-      --preview '([[ -d {} ]] && tree -C {} || bat --style=numbers --color=always {})'
-  )"
-
+  selected="$(eval "$tree_cmd" | fzf --preview '([[ -d {} ]] && tree -C {} || bat --style=numbers --color=always {})')"
   [[ -z "$selected" ]] && return
+
   selected="${selected#\"}"
   selected="${selected%\"}"
 
   if [[ "$selected" == /* ]]; then
-    [[ -d "$selected" ]] && cd "$selected" || "${EDITOR:-vim}" "$selected"
+    if [[ -d "$selected" ]]; then
+      action="cd \"$selected\""
+    else
+      action="${EDITOR:-vim} \"$selected\""
+    fi
   else
-    [[ -d "$base_dir/$selected" ]] && cd "$base_dir/$selected" || "${EDITOR:-vim}" "$base_dir/$selected"
+    if [[ -d "$base_dir/$selected" ]]; then
+      action="cd \"$base_dir/$selected\""
+    else
+      action="${EDITOR:-vim} \"$base_dir/$selected\""
+    fi
   fi
+
+  print -s "$action"
+  eval "$action"
 }
 
-
-function open_nvim() {
-  # Optionally clear the current command line
-  zle reset-prompt
-  # Run nvim in the current directory
-  nvim .
-  # Refresh the prompt when you return
-  zle reset-prompt
-}
-
-function search_rg() {
-  # Prompt the user for a search pattern
-  local pattern
-  print -n "Enter search pattern: "
-  read pattern
-  # Clear the screen (optional)
-  clear
-  # Run ripgrep with the entered pattern
-  rg "$pattern"
-  # Optionally wait for input before returning to the shell
-  print "Press Enter to continue..."
-  read
-  zle reset-prompt
-}
+zle -N fzf_tree_ignore
+zle -N fzf_tree_all
+bindkey '^T' fzf_tree_ignore
+bindkey '^F' fzf_tree_all
 
 
-function pkill() {
-  ps aux | fzf --height 40% --layout=reverse --prompt="Select process to kill: " | awk '{print $2}' | xargs -p sudo kill
-}
-xinput --set-prop 13 "libinput Accel Speed" -0.8
+
 
 
 # ZLE binding for Zsh:
